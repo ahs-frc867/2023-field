@@ -55,17 +55,6 @@
     "zm": 0
   },
   {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
     "type": "staged_piece",
     "name": "leftmost",
     "enum": "STAGED_PIECE_LEFTMOST",
@@ -152,17 +141,6 @@
     "xm": -1.96,
     "ym": -3.09,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "charge_station",
@@ -254,8 +232,8 @@
   },
   {
     "type": "charge_station",
-    "name": "avoid_left_far",
-    "enum": "CHARGE_STATION_AVOID_LEFT_FAR",
+    "name": "avoid_right_far",
+    "enum": "CHARGE_STATION_AVOID_RIGHT_FAR",
     "xi": -132.49,
     "yi": -137.61,
     "zi": 0,
@@ -265,8 +243,8 @@
   },
   {
     "type": "charge_station",
-    "name": "avoid_left_near",
-    "enum": "CHARGE_STATION_AVOID_LEFT_NEAR",
+    "name": "avoid_right_near",
+    "enum": "CHARGE_STATION_AVOID_RIGHT_NEAR",
     "xi": -210.67,
     "yi": -137.61,
     "zi": 0,
@@ -352,39 +330,6 @@
     "zm": 0.23
   },
   {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
     "type": "grid_left",
     "name": "edge_left",
     "enum": "GRID_LEFT_EDGE_LEFT",
@@ -407,20 +352,9 @@
     "zm": 0
   },
   {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
-    "type": "grid_middle",
+    "type": "grid_left",
     "name": "approach_left",
-    "enum": "GRID_MIDDLE_APPROACH_LEFT",
+    "enum": "GRID_LEFT_APPROACH_LEFT",
     "xi": -248.36,
     "yi": -29.72,
     "zi": 0,
@@ -429,9 +363,9 @@
     "zm": 0
   },
   {
-    "type": "grid_middle",
+    "type": "grid_left",
     "name": "approach_middle",
-    "enum": "GRID_MIDDLE_APPROACH_MIDDLE",
+    "enum": "GRID_LEFT_APPROACH_MIDDLE",
     "xi": -248.36,
     "yi": -51.72,
     "zi": 0,
@@ -440,26 +374,15 @@
     "zm": 0
   },
   {
-    "type": "grid_middle",
+    "type": "grid_left",
     "name": "approach_right",
-    "enum": "GRID_MIDDLE_APPROACH_RIGHT",
+    "enum": "GRID_LEFT_APPROACH_RIGHT",
     "xi": -248.36,
     "yi": -73.72,
     "zi": "",
     "xm": -6.31,
     "ym": -1.87,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "grid_left",
@@ -561,17 +484,6 @@
     "zm": 0
   },
   {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
     "type": "grid_middle",
     "name": "edge_left",
     "enum": "GRID_MIDDLE_EDGE_LEFT",
@@ -592,17 +504,6 @@
     "xm": -6.89,
     "ym": -2.15,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "grid_middle",
@@ -636,17 +537,6 @@
     "xm": -6.31,
     "ym": -1.87,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "grid_middle",
@@ -748,17 +638,6 @@
     "zm": 0
   },
   {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
-  },
-  {
     "type": "grid_right",
     "name": "edge_left",
     "enum": "GRID_RIGHT_EDGE_LEFT",
@@ -779,17 +658,6 @@
     "xm": -6.89,
     "ym": -4.05,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "grid_right",
@@ -823,17 +691,6 @@
     "xm": -6.31,
     "ym": -3.5,
     "zm": 0
-  },
-  {
-    "type": "",
-    "name": "",
-    "enum": "",
-    "xi": "",
-    "yi": "",
-    "zi": "",
-    "xm": "",
-    "ym": "",
-    "zm": ""
   },
   {
     "type": "grid_right",
