@@ -65,15 +65,20 @@ async function main(){
     left: {
       place_list: [
         places.grid_left.approach_left,
+places.grid_left.node_left_top,
+places.grid_left.approach_left,
+
         places.charge_station.avoid_left_near,
         places.charge_station.avoid_left_far,
         places.staged_piece.approach_leftmost,
         places.staged_piece.leftmost,
+
         places.charge_station.avoid_left_far,
         places.charge_station.avoid_left_near,
-        places.grid_left.approach_left,
-        places.grid_left.node_left_top,
-        places.grid_left.approach_left,
+        places.grid_left.approach_middle,
+        places.grid_left.node_middle_top,
+        places.grid_left.approach_middle,
+
         places.charge_station.approach_left_near,
         places.charge_station.park_left,
       ],
@@ -81,15 +86,20 @@ async function main(){
     right: {
       place_list: [
         places.grid_right.approach_right,
+places.grid_right.node_right_top,
+places.grid_right.approach_right,
+
         places.charge_station.avoid_right_near,
         places.charge_station.avoid_right_far,
         places.staged_piece.approach_rightmost,
         places.staged_piece.rightmost,
+
         places.charge_station.avoid_right_far,
         places.charge_station.avoid_right_near,
-        places.grid_right.approach_right,
-        places.grid_right.node_right_top,
-        places.grid_right.approach_right,
+        places.grid_right.approach_middle,
+        places.grid_right.node_middle_top,
+        places.grid_right.approach_middle,
+
         places.charge_station.approach_right_near,
         places.charge_station.park_right,
       ],
