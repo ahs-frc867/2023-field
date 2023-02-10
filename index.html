@@ -1,19 +1,156 @@
 <html>
   <head>
     <style>
-html, body {
+body {
   width: 100%;
   height: 100%;
+  margin: 0;
+  overflow: scroll;
+}
+svg {
+}
+svg circle {
+  r: 8;
+  stroke: black;
+  stroke-width: 2;
+}
+svg circle:hover {
+  stroke-width: 4;
+}
+svg path {
+  fill: none;
+}
+svg path.full {
+  stroke-width: 8;
+  opacity: 0.2;
+}
+svg path.dash {
+  stroke-width: 4;
+  stroke-dasharray: 100 1900;
+  animation: dash 2s linear reverse infinite;
+}
+@keyframes dash {
+  to {
+    stroke-dashoffset: 2000;
+  }
+}
+output {
+  position: fixed;
 }
     </style>
   </head>
   <body>
-    <canvas></canvas>
+    <svg>
+      <image href='https://ahs-frc867.github.io/2023-field/field.png' width='100%' height='100%' opacity="0.5"/>
+    </svg>
     <script>
 async function main(){
-  const canvas = document.querySelector('canvas')
-  const ctx = canvas.getContext('2d')
-  const field = await fetch('./field.json').then(res => res.json())
+  const svg = document.querySelector('svg')
+  const ns = "http://www.w3.org/2000/svg"
+    
+  const place_list = await fetch('https://ahs-frc867.github.io/2023-field/field.json?e').then(res => res.json())
+  const places = {}
+  for(const place of place_list){
+    if(!(place.type in places)) places[place.type] = {}
+    
+    places[place.type][place.name] = { 
+      x: place.xm * 100,
+      y: place.ym * 100,
+      z: place.zm * 100,
+      enum: place.enum
+    }
+  }
+  
+  const paths = {
+    left: {
+      place_list: [
+        places.grid_left.approach_left,
+        places.charge_station.avoid_left_near,
+        places.charge_station.avoid_left_far,
+        places.staged_piece.approach_leftmost,
+        places.staged_piece.leftmost,
+        places.charge_station.avoid_left_far,
+        places.charge_station.avoid_left_near,
+        places.grid_left.approach_left,
+        places.grid_left.node_left_top,
+        places.grid_left.approach_left,
+        places.charge_station.approach_left_near,
+        places.charge_station.park_left,
+      ],
+    },
+    right: {
+      place_list: [
+        places.grid_right.approach_right,
+        places.charge_station.avoid_right_near,
+        places.charge_station.avoid_right_far,
+        places.staged_piece.approach_rightmost,
+        places.staged_piece.rightmost,
+        places.charge_station.avoid_right_far,
+        places.charge_station.avoid_right_near,
+        places.grid_right.approach_right,
+        places.grid_right.node_right_top,
+        places.grid_right.approach_right,
+        places.charge_station.approach_right_near,
+        places.charge_station.park_right,
+      ],
+    },
+    custom: {
+      place_list: []
+    }
+  }
+
+  const w = places.field.corner_left_far.x - places.field.corner_left_near.x
+  const h = places.field.corner_left_far.y - places.field.corner_right_far.y
+  svg.viewBox = `0 0 ${w} ${h}`
+  svg.style.width = w
+  svg.style.height = h
+  
+  const update_path = path => {
+    const d = 'M' + path.place_list.map(place => [w/2 + place.x, h/2 - place.y].join(' ')).join('L')
+    path.full.setAttribute('d', d)
+    path.dash.setAttribute('d', d)
+  }
+
+  let i = 0
+  for(const name in paths) {
+    const color = `hsla(${i}, 50%, 50%, 1)`
+    i += 60
+    const path = paths[name]
+    
+    path.full = document.createElementNS(ns, 'path')
+    path.full.setAttribute('class', 'full')
+    path.full.setAttribute('stroke', color)
+    svg.appendChild(path.full)
+
+    path.dash = document.createElementNS(ns, 'path')
+    path.dash.setAttribute('class', 'dash')
+    path.dash.setAttribute('stroke', color)
+    svg.appendChild(path.dash)
+    
+    update_path(path)
+  }
+  
+  for(const type in places){
+    const color = `hsla(${i}, 100%, 80%, 1)`
+    i += 60
+    for(const name in places[type]){
+      const place = places[type][name]
+      const circle = document.createElementNS(ns, 'circle')
+      circle.setAttribute('cx', w/2 + place.x)
+      circle.setAttribute('cy', h/2 - place.y)
+      circle.setAttribute('fill', color)
+      circle.addEventListener('click', (event) => {
+        event.stopPropagation()
+        paths.custom.place_list.push(place)
+        update_path(paths.custom)
+      })
+      svg.appendChild(circle)
+    }
+  }
+  svg.addEventListener('click', (event) => {
+    paths.custom.place_list = []
+    update_path(paths.custom)
+  })
 }
 main()
     </script>
