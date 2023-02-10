@@ -10,7 +10,6 @@ body {
 svg {
 }
 svg circle {
-  r: 8;
   stroke: black;
   stroke-width: 2;
 }
@@ -148,6 +147,7 @@ places.grid_right.approach_right,
       const circle = document.createElementNS(ns, 'circle')
       circle.setAttribute('cx', w/2 + place.x)
       circle.setAttribute('cy', h/2 - place.y)
+      circle.setAttribute('r', 4)
       circle.setAttribute('fill', color)
       circle.addEventListener('click', (event) => {
         event.stopPropagation()
