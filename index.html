@@ -47,7 +47,7 @@ async function main(){
   const svg = document.querySelector('svg')
   const ns = "http://www.w3.org/2000/svg"
     
-  const place_list = await fetch('https://ahs-frc867.github.io/2023-field/field.json?e').then(res => res.json())
+  const place_list = await fetch('https://ahs-frc867.github.io/2023-field/field.json').then(res => res.json())
   const places = {}
   for(const place of place_list){
     if(!(place.type in places)) places[place.type] = {}
@@ -62,6 +62,7 @@ async function main(){
   
   const paths = {
     left: {
+      name: 'left',
       place_list: [
         places.grid_left.approach_left,
 places.grid_left.node_left_top,
@@ -83,6 +84,7 @@ places.grid_left.approach_left,
       ],
     },
     right: {
+      name: 'right',
       place_list: [
         places.grid_right.approach_right,
 places.grid_right.node_right_top,
@@ -104,6 +106,7 @@ places.grid_right.approach_right,
       ],
     },
     custom: {
+      name: 'custom',
       place_list: []
     }
   }
@@ -118,6 +121,7 @@ places.grid_right.approach_right,
     const d = 'M' + path.place_list.map(place => [w/2 + place.x, h/2 - place.y].join(' ')).join('L')
     path.full.setAttribute('d', d)
     path.dash.setAttribute('d', d)
+    console.log(path.name + ': { ' + path.place_list.map(a=>a.enum).join(', ') + ' };')
   }
 
   let i = 0
