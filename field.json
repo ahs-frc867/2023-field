@@ -356,10 +356,10 @@
     "name": "approach_left",
     "enum": "GRID_LEFT_APPROACH_LEFT",
     "xi": -248.36,
-    "yi": -29.72,
+    "yi": 38.39,
     "zi": 0,
     "xm": -6.31,
-    "ym": -0.75,
+    "ym": 0.98,
     "zm": 0
   },
   {
@@ -367,10 +367,10 @@
     "name": "approach_middle",
     "enum": "GRID_LEFT_APPROACH_MIDDLE",
     "xi": -248.36,
-    "yi": -51.72,
+    "yi": 16.39,
     "zi": 0,
     "xm": -6.31,
-    "ym": -1.31,
+    "ym": 0.42,
     "zm": 0
   },
   {
@@ -378,10 +378,10 @@
     "name": "approach_right",
     "enum": "GRID_LEFT_APPROACH_RIGHT",
     "xi": -248.36,
-    "yi": -73.72,
+    "yi": -5.61,
     "zi": "",
     "xm": -6.31,
-    "ym": -1.87,
+    "ym": -0.14,
     "zm": 0
   },
   {
